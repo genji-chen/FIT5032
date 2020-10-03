@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6e9ae9688262402b87d6df0db48afc26" Name="Diagram1" >
+        <EntityTypeShape EntityType="assessment_Model.User" Width="1.5" PointX="4.875" PointY="0.5" />
+        <EntityTypeShape EntityType="assessment_Model.Test" Width="1.5" PointX="0.5" PointY="0.75" />
+        <EntityTypeShape EntityType="assessment_Model.TestList" Width="1.5" PointX="2.75" PointY="0.75" />
+        <AssociationConnector Association="assessment_Model.UserTestList" />
+        <AssociationConnector Association="assessment_Model.TestListTest" />
+        <EntityTypeShape EntityType="assessment_Model.Course" Width="1.5" PointX="9.375" PointY="0.5" />
+        <EntityTypeShape EntityType="assessment_Model.CourseList" Width="1.5" PointX="7" PointY="0.5" />
+        <AssociationConnector Association="assessment_Model.UserCourseList" />
+        <AssociationConnector Association="assessment_Model.CourseCourseList" />
+        <EntityTypeShape EntityType="assessment_Model.Administrator" Width="1.5" PointX="3.875" PointY="4" />
+        <EntityTypeShape EntityType="assessment_Model.ModifyTest" Width="1.5" PointX="0.875" PointY="4.125" />
+        <AssociationConnector Association="assessment_Model.AdministratorModifyTest" />
+        <AssociationConnector Association="assessment_Model.ModifyTestTest" />
+        <EntityTypeShape EntityType="assessment_Model.ModifyCourse" Width="1.5" PointX="9.5" PointY="4.125" />
+        <AssociationConnector Association="assessment_Model.ModifyCourseAdministrator" />
+        <AssociationConnector Association="assessment_Model.CourseModifyCourse" />
+        <EntityTypeShape EntityType="assessment_Model.ModifyUser" Width="1.5" PointX="7" PointY="3" />
+        <AssociationConnector Association="assessment_Model.UserModifyUser" />
+        <AssociationConnector Association="assessment_Model.AdministratorModifyUser" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

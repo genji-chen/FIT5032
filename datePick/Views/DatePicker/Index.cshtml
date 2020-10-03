@@ -1,0 +1,10 @@
+﻿@model datePick.Models.DatePickerModel
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.EditorFor(model=> model.dateTime, new { htmlAttributes = new { @class = "datepicker" } })
+}
+

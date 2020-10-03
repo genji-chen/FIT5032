@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="assessment_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="assessment_ModelStoreContainer">
+    <EntitySet Name="Users" EntityType="assessment_Model.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tests" EntityType="assessment_Model.Store.Tests" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TestLists" EntityType="assessment_Model.Store.TestLists" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Courses" EntityType="assessment_Model.Store.Courses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CourseLists" EntityType="assessment_Model.Store.CourseLists" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Administrators" EntityType="assessment_Model.Store.Administrators" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ModifyTests" EntityType="assessment_Model.Store.ModifyTests" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ModifyCourses" EntityType="assessment_Model.Store.ModifyCourses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ModifyUsers" EntityType="assessment_Model.Store.ModifyUsers" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UserTestList" Association="assessment_Model.Store.UserTestList">
+      <End Role="User" EntitySet="Users" />
+      <End Role="TestList" EntitySet="TestLists" />
+    </AssociationSet>
+    <AssociationSet Name="TestListTest" Association="assessment_Model.Store.TestListTest">
+      <End Role="TestList" EntitySet="TestLists" />
+      <End Role="Test" EntitySet="Tests" />
+    </AssociationSet>
+    <AssociationSet Name="UserCourseList" Association="assessment_Model.Store.UserCourseList">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CourseList" EntitySet="CourseLists" />
+    </AssociationSet>
+    <AssociationSet Name="CourseCourseList" Association="assessment_Model.Store.CourseCourseList">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="CourseList" EntitySet="CourseLists" />
+    </AssociationSet>
+    <AssociationSet Name="AdministratorModifyTest" Association="assessment_Model.Store.AdministratorModifyTest">
+      <End Role="Administrator" EntitySet="Administrators" />
+      <End Role="ModifyTest" EntitySet="ModifyTests" />
+    </AssociationSet>
+    <AssociationSet Name="ModifyTestTest" Association="assessment_Model.Store.ModifyTestTest">
+      <End Role="ModifyTest" EntitySet="ModifyTests" />
+      <End Role="Test" EntitySet="Tests" />
+    </AssociationSet>
+    <AssociationSet Name="ModifyCourseAdministrator" Association="assessment_Model.Store.ModifyCourseAdministrator">
+      <End Role="ModifyCourse" EntitySet="ModifyCourses" />
+      <End Role="Administrator" EntitySet="Administrators" />
+    </AssociationSet>
+    <AssociationSet Name="CourseModifyCourse" Association="assessment_Model.Store.CourseModifyCourse">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="ModifyCourse" EntitySet="ModifyCourses" />
+    </AssociationSet>
+    <AssociationSet Name="UserModifyUser" Association="assessment_Model.Store.UserModifyUser">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ModifyUser" EntitySet="ModifyUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AdministratorModifyUser" Association="assessment_Model.Store.AdministratorModifyUser">
+      <End Role="Administrator" EntitySet="Administrators" />
+      <End Role="ModifyUser" EntitySet="ModifyUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Level" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tests">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TestName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TestLists">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="state" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="TestId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NoOfEpisode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CourseLists">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Administrators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ModifyTests">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdministratorId" Type="int" Nullable="false" />
+    <Property Name="TestId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ModifyCourses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdministratorId" Type="int" Nullable="false" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ModifyUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Action" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="AdministratorId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="UserTestList">
+    <End Role="User" Type="assessment_Model.Store.Users" Multiplicity="1" />
+    <End Role="TestList" Type="assessment_Model.Store.TestLists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TestList">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TestListTest">
+    <End Role="TestList" Type="assessment_Model.Store.TestLists" Multiplicity="*" />
+    <End Role="Test" Type="assessment_Model.Store.Tests" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Test">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TestList">
+        <PropertyRef Name="TestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserCourseList">
+    <End Role="User" Type="assessment_Model.Store.Users" Multiplicity="1" />
+    <End Role="CourseList" Type="assessment_Model.Store.CourseLists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseList">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseCourseList">
+    <End Role="Course" Type="assessment_Model.Store.Courses" Multiplicity="1" />
+    <End Role="CourseList" Type="assessment_Model.Store.CourseLists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseList">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AdministratorModifyTest">
+    <End Role="Administrator" Type="assessment_Model.Store.Administrators" Multiplicity="1" />
+    <End Role="ModifyTest" Type="assessment_Model.Store.ModifyTests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Administrator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModifyTest">
+        <PropertyRef Name="AdministratorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ModifyTestTest">
+    <End Role="ModifyTest" Type="assessment_Model.Store.ModifyTests" Multiplicity="*" />
+    <End Role="Test" Type="assessment_Model.Store.Tests" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Test">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModifyTest">
+        <PropertyRef Name="TestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ModifyCourseAdministrator">
+    <End Role="ModifyCourse" Type="assessment_Model.Store.ModifyCourses" Multiplicity="*" />
+    <End Role="Administrator" Type="assessment_Model.Store.Administrators" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Administrator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModifyCourse">
+        <PropertyRef Name="AdministratorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseModifyCourse">
+    <End Role="Course" Type="assessment_Model.Store.Courses" Multiplicity="1" />
+    <End Role="ModifyCourse" Type="assessment_Model.Store.ModifyCourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModifyCourse">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserModifyUser">
+    <End Role="User" Type="assessment_Model.Store.Users" Multiplicity="1" />
+    <End Role="ModifyUser" Type="assessment_Model.Store.ModifyUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModifyUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AdministratorModifyUser">
+    <End Role="Administrator" Type="assessment_Model.Store.Administrators" Multiplicity="1" />
+    <End Role="ModifyUser" Type="assessment_Model.Store.ModifyUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Administrator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModifyUser">
+        <PropertyRef Name="AdministratorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
